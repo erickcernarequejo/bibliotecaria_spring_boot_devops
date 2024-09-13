@@ -56,8 +56,8 @@ public class AuthorServiceImpl implements IAuthorService {
 
     @Transactional
     @Override
-    public AuthorDTO insert(AuthorDTO authorDTO) {
-        log.debug("Start of the method insert");
+    public AuthorDTO createAuthor(AuthorDTO authorDTO) {
+        log.debug("Start of the method createAuthor");
         Author author = authorMapper.authorDTOToAuthor(authorDTO);
         Long id = author.getId();
 
@@ -92,7 +92,7 @@ public class AuthorServiceImpl implements IAuthorService {
     }
 
     @Override
-    public Optional<AuthorDTO> update(AuthorDTO authorDTO) {
+    public Optional<AuthorDTO> updateAuthor(AuthorDTO authorDTO) {
         log.debug("Start of the method update with author id: {}", authorDTO.getId());
         Long id = authorDTO.getId();
 
@@ -122,7 +122,7 @@ public class AuthorServiceImpl implements IAuthorService {
     }
 
     @Override
-    public void delete(Long id) {
+    public void deleteAuthorById(Long id) {
         log.debug("Start of the method delete with author id: {}", id);
 
         Assert.notNull(id, MESSAGE_AUTHOR_NOT_FOUND);
@@ -139,6 +139,7 @@ public class AuthorServiceImpl implements IAuthorService {
     @Transactional
     @Override
     public void deleteLastBook(Long id) {
+        log.debug("Start of the method delete last book with author id: {}", id);
         Author author = authorRepository.fetchByName("Gabriel García Márquez");
         List<Book> books = author.getBooks();
         if (books.isEmpty()) {

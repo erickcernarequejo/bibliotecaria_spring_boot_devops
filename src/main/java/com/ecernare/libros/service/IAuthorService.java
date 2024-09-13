@@ -12,13 +12,13 @@ public interface IAuthorService {
 
     List<AuthorDTO> getAuthors();
 
-    AuthorDTO insert(AuthorDTO authorDTO);
+    AuthorDTO createAuthor(AuthorDTO authorDTO);
 
     Optional<AuthorDTO> insertNewBook(Long id, List<BookDTO> booksDTO);
 
-    Optional<AuthorDTO> update(AuthorDTO authorDTO);
+    Optional<AuthorDTO> updateAuthor(AuthorDTO authorDTO);
 
-    void delete(Long id);
+    void deleteAuthorById(Long id);
 
     void deleteLastBook(Long id);
 

@@ -76,7 +76,7 @@ public class AuthorController {
     })
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<AuthorDTO> createAuthor(@Valid @RequestBody AuthorDTO authorDTO) {
-        return new ResponseEntity<>(authorService.insert(authorDTO), HttpStatus.CREATED);
+        return new ResponseEntity<>(authorService.createAuthor(authorDTO), HttpStatus.CREATED);
     }
 
     @Operation(summary = "Update an existing author", description = "Update an existing author")
@@ -89,7 +89,7 @@ public class AuthorController {
     })
     @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<AuthorDTO> updateAuthor(@RequestBody AuthorDTO authorDTO) {
-        Optional<AuthorDTO> authorOptional = authorService.update(authorDTO);
+        Optional<AuthorDTO> authorOptional = authorService.updateAuthor(authorDTO);
         if (authorOptional.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Author with id " + authorDTO.getId() + " not found.");
         }
@@ -106,7 +106,7 @@ public class AuthorController {
     })
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> deleteAuthorById(@PathVariable("id") Long id) {
-        authorService.deleteLastBook(id);
+        authorService.deleteAuthorById(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
