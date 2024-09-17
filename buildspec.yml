@@ -1,0 +1,37 @@
+version: 0.2
+
+env:
+  parameter-store:
+    DB_NAME: "/DB/NAME"
+    DB_USERNAME: "/DB/USERNAME"
+    DB_PASSWORD: "/DB/PASSWORD"
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto21  # Establece la versión de Java a utilizar
+    commands:
+      - echo "Installing dependencies..."
+      - yum install maven -y
+  pre_build:
+    commands:
+      - echo "Compiling the project..."
+      - mvn clean install
+  build:
+    commands:
+      - echo "Running tests..."
+      - mvn package
+  post_build:
+    commands:
+      - echo Build completed on `date`
+
+artifacts:
+  files:
+    - target/*.jar  # Especifica los archivos JAR como artefactos de salida
+    - scripts/*.sh
+    - appspec-ec2.yml
+  discard-paths: yes  # Descarta las rutas de los archivos al especificar los artefactos
+
+cache:
+  paths:
+    - '/root/.m2/**/*'
