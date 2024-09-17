@@ -11,6 +11,8 @@ phases:
     runtime-versions:
       java: corretto21  # Establece la versión de Java a utilizar
     commands:
+      - echo "Version Maven"
+      - mvn -version
       - echo "Installing dependencies..."
       - yum install maven -y
   pre_build:

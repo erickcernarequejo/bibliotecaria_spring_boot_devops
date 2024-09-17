@@ -1,9 +1,7 @@
 package com.ecernare.libros.service;
 
 import com.ecernare.libros.domain.Author;
-import com.ecernare.libros.domain.Book;
 import com.ecernare.libros.dto.AuthorDTO;
-import com.ecernare.libros.dto.BookDTO;
 import com.ecernare.libros.mapper.IAuthorMapper;
 import com.ecernare.libros.mapper.IBookMapper;
 import com.ecernare.libros.repository.IAuthorRepository;
@@ -15,12 +13,11 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
+import static org.junit.Assert.assertSame;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
 public class AuthorServiceImplTest {
@@ -58,7 +55,7 @@ public class AuthorServiceImplTest {
         AuthorDTO optionalAuthorDTO = authorService.getAuthorById(1L);
 
         // THEN
-        assertTrue(authorDTO == optionalAuthorDTO);
+        assertSame(authorDTO, optionalAuthorDTO);
 
         verify(authorRepository).findById(id);
         verify(authorMapper).authorToAuthorDTO(author);
@@ -82,10 +79,10 @@ public class AuthorServiceImplTest {
         when(authorMapper.authorToAuthorDTO(attachedAuthor)).thenReturn(attachedAuthorDTO);
 
         // WHEN
-        AuthorDTO authorRet = authorService.insert(authorDTO);
+        AuthorDTO authorRet = authorService.createAuthor(authorDTO);
 
         // THEN
-        assertTrue(attachedAuthorDTO == authorRet);
+        assertSame(attachedAuthorDTO, authorRet);
 
         verify(authorMapper).authorDTOToAuthor(authorDTO);
         verify(authorRepository).existsById(id);
