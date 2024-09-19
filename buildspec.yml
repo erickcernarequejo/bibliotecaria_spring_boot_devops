@@ -5,6 +5,8 @@ env:
     DB_NAME: "/DB/NAME"
     DB_USERNAME: "/DB/USERNAME"
     DB_PASSWORD: "/DB/PASSWORD"
+    DB_HOST_WRITER: "/DB/HOST/WRITER"
+    DB_SCHEMA: "/DB/SCHEMA"
 
 phases:
   install:
