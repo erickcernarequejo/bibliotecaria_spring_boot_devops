@@ -17,14 +17,10 @@ phases:
       - java -version
       - echo "Maven version"
       - mvn -version
-  pre_build:
-    commands:
-      - echo "Compiling the project..."
-      - mvn clean install
   build:
     commands:
-      - echo "Running tests..."
-      - mvn package
+      - echo "Compiling and testing the project..."
+      - mvn clean package
   post_build:
     commands:
       - echo Build completed on `date`
