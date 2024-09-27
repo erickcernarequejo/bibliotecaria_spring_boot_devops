@@ -29,7 +29,7 @@ artifacts:
   files:
     - target/*.jar  # Especifica los archivos JAR como artefactos de salida
     - scripts/*.sh
-    - appspec-ec2.yml
+    - appspec.yml
   discard-paths: yes  # Descarta las rutas de los archivos al especificar los artefactos
 
 cache:
