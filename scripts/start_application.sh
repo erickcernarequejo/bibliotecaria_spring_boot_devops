@@ -1,5 +1,5 @@
 #!/bin/bash
-source /home/ec2-user/load_env_vars.sh
+source /home/ec2-user/app/scripts/load_env_vars.sh
 cd /home/ec2-user/app
 nohup java -jar \
       -Dserver.port=80 \
