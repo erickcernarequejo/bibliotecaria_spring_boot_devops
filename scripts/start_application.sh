@@ -12,7 +12,7 @@ LOG_DIR="$APP_DIR/logs"
 JAR_FILE=$(ls $JAR_DIR/*.jar | head -n 1)
 
 nohup java -jar \
-      -Dserver.port=80 \
+      -Dserver.port=8080 \
       -DDB_NAME=$DB_NAME \
       -DDB_USERNAME=$DB_USERNAME \
       -DDB_PASSWORD=$DB_PASSWORD \

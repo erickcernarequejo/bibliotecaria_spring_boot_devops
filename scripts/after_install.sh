@@ -2,7 +2,7 @@
 # Configura la nueva versión de la aplicación
 
 # Navega al directorio de la aplicación
-cd /home/ec2-user/app
+cd /home/ec2-user/app/target
 
 # Ajusta los permisos del JAR
 chmod +x *.jar
