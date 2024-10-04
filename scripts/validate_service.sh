@@ -5,7 +5,7 @@
 sleep 40
 
 # Verifica si la aplicación está respondiendo
-HEALTH_CHECK_URL="http://localhost:80/actuator/health"
+HEALTH_CHECK_URL="http://localhost:8080/actuator/health"
 MAX_RETRIES=2
 RETRY_INTERVAL=5
 
