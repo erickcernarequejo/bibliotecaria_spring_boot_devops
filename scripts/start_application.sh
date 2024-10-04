@@ -18,4 +18,6 @@ nohup java -jar \
       -DDB_PASSWORD=$DB_PASSWORD \
       $JAR_FILE > /dev/null 2>&1 &
 
-echo $! > ./app.pid
+echo $! > /home/ec2-user/app/app.pid
+
+ls -l /home/ec2-user/app
