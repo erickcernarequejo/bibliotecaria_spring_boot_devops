@@ -1,5 +1,6 @@
 #!/bin/bash
-# Configura la nueva versión de la aplicación
+# Ajusta los permisos de todo el directorio de la aplicación
+sudo chown -R ec2-user:ec2-user /home/ec2-user/app
 
 # Navega al directorio de la aplicación
 cd /home/ec2-user/app/target
