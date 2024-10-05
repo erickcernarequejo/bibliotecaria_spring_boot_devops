@@ -11,6 +11,7 @@ fi
 
 # Crea el directorio de la aplicación si no existe
 mkdir -p /home/ec2-user/app
+ls -l /home/ec2-user/app
 
 # Limpia el directorio de la aplicación
 rm -rf /home/ec2-user/app/*
