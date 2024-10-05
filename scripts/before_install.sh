@@ -11,10 +11,9 @@ fi
 
 # Crea el directorio de la aplicación si no existe
 mkdir -p /home/ec2-user/app
-ls -l /home/ec2-user/app
 
 # Limpia el directorio de la aplicación
 rm -rf /home/ec2-user/app/*
 
 # Ajusta los permisos
-sudo chown -R ec2-user:ec2-user /home/ec2-user/app
+#sudo chown -R ec2-user:ec2-user /home/ec2-user/app
