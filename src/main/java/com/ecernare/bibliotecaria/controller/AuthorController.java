@@ -20,7 +20,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 import java.util.Optional;
 
-@Tag(name = "Authors", description = "Authors Management Test")
+@Tag(name = "Authors", description = "Authors Management")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/authors")
