@@ -20,7 +20,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 import java.util.Optional;
 
-@Tag(name = "Authors", description = "Authors Management Test")
+@Tag(name = "Authors", description = "Authors Management")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/authors")
@@ -28,7 +28,7 @@ public class AuthorController {
 
     private final IAuthorService authorService;
 
-    @Value("${POD_IP:unknown}")
+    @Value("${HOSTNAME:unknown}")
     private String podIP;
 
     @Operation(summary = "Get IP Pod", description = "Get IP Pod")
