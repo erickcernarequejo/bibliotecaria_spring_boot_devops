@@ -138,6 +138,24 @@
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>${org.jacoco.version}</version>
+				<configuration>
+					<excludes>
+						<!-- Entidades de BBDD -->
+						<exclude>com/ecernare/**/domain/**/*</exclude>
+						<!-- DTOs -->
+						<exclude>com/ecernare/**/dto/**/*</exclude>
+						<!-- Properties -->
+						<exclude>com/ecernare/**/properties/*</exclude>
+						<!-- Mapper -->
+						<exclude>com/ecernare/**/mapper/*</exclude>
+						<!-- Controller -->
+						<exclude>com/ecernare/**/controller/*</exclude>
+						<!-- Config -->
+						<exclude>com/ecernare/**/config/*</exclude>
+						<!-- Exception -->
+						<exclude>com/ecernare/**/exception/*</exclude>
+					</excludes>
+				</configuration>
 				<executions>
 					<execution>
 						<goals>
@@ -150,6 +168,28 @@
 						<goals>
 							<goal>report</goal>
 						</goals>
+					</execution>
+					<execution>
+						<id>jacoco-check</id>
+						<goals>
+							<goal>check</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<rule>
+									<element>CLASS</element>
+									<limits>
+										<limit>
+											<counter>LINE</counter>
+											<value>COVEREDRATIO</value>
+											<!-- Ajustar aqui los valores minimos, 0.85 por ejemplo para un
+												85% de cobertura -->
+											<minimum>0.85</minimum>
+										</limit>
+									</limits>
+								</rule>
+							</rules>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
